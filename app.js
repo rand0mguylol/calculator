@@ -16,7 +16,8 @@
 
         // In the event the user presses the equal button after an action button, 
         //this enures the secondValue will always have some sort of value, else the screen value is taken
-        secondValue = self.lastKey === "operator"? 0 : screen.value; 
+        // secondValue = self.lastKey === "operator"? 0 : screen.value; 
+        secondValue =  screen.value; 
 
         let result = compute(self.firstValue, self.action, secondValue)
         screen.value = result
@@ -80,7 +81,7 @@
     else if (self.firstValue) assignResult() // self.firstValue is truthy indicates an action button has been pressed so the computation can be performed.
     self.lastKey ="equal" 
     self.action = "" // Resets self.action
-    self.firstValue = "" // Resets self.firstValue
+    self.firstValue = "" // Resets self.firstValue so the last computed value will be used when actions pressed an action button
   })
   
   clear.addEventListener('click', clearCal)
